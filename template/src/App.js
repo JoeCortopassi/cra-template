@@ -28,17 +28,18 @@ const App = () => {
               <BrowserRouter>
                 <Routes>
                     <Route path="example" element={<h2>Example Path</h2>} />
-        <Route path="user" element={<h2>User example path <a href="/user/4">Example route based on 'id' path variable</a></h2>} />
-                    <Route path=":id" element={<h2>Example path variable {id}</h2>} />
+                    <Route path="user">
+                        <Route path=":id" element={<h2>Example path variable {id}</h2>} />
+                    </Route>
+                    <Route path="404" element={<h2>404 Page</h2>} />
                     <Route
                         path="*"
-                        element={<Navigate to="/" replace />}
+                        element={<Navigate to="/404" replace />}
                     />
                 </Routes>
               </BrowserRouter>
               <ul>
                 <li><a href="/example">Example Route</a></li>
-                <li><a href="/user">User path</a></li>
                 <li><a href="/user/4">Example route based on 'id' path variable</a></li>
               </ul>
             </AppWrapper>
